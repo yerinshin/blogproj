@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{error}}
+{% endif %}
+<br>
+<Br>
+<h1>로그인 하기</h1>
+<Br>
+<form method = "POST" action = "{% url 'login'%}">
+    {% csrf_token %}
+    <h4>Username:</h4>
+    <input name = "username" type= "text"/><br>
+    <h4> Password: </h4>
+    <input name = "password" type="password"><br><Br>
+    <button type="submit">Login!</button>
+</form>
+{% endblock %}
