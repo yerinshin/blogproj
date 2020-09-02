@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1>예린's portfolio</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    </div>
+</div>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="{% static 'coffee.png'%}" height = 300 alt= "커피사진">
+            <div class="card-body">
+              <h5 class="card-text">라떼입니다</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row">
+                {% for portfolio in portfolios.all%}
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img src="{{ portfolio.image.url }}" height = 300 alt= "바나나우유">
+                    <div class="card-body">
+                      <h5 class="card-text">{{portfolio.title}}</h5>
+                      <p class="card-text">{{portfolio.description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+       
+      </div>
+    </div>
+ 
+
+ 
+
+{%endblock%}
